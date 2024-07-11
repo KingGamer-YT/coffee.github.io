@@ -4,348 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bean Scene</title>
+    <link rel="stylesheet" href="style.css">|
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            color: white;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .img {
-            width: 100%;
-            height: 780px;
-            object-fit: cover;
-        }
-
-        /* Navbar */
-        nav {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            padding: 20px;
-            background-color: transparent;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            font-family: 'Clicker Script', cursive;
-            font-size: 2.5rem;
-        }
-
-        .nav-links {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .dropdown-button {
-            display: none;
-        }
-
-        .signup-button {
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            background-color: #F9C06A;
-            color: #1E1E1E;
-            cursor: pointer;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .dropdown-button {
-                display: block;
-                background-color: #F9C06A;
-                color: #1E1E1E;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 20px;
-                cursor: pointer;
-                z-index: 2;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                right: 20px;
-                background-color: rgba(0, 0, 0, 0.7);
-                padding: 20px;
-                border-radius: 10px;
-                z-index: 1;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .signup-button {
-                margin-top: 10px;
-                width: 100%;
-            }
-
-            .brand {
-                font-size: 2rem;
-            }
-        }
-
-        @media only screen and (min-width: 1440px) {
-            .firs {
-                padding-left: 240px;
-            }
-
-            .last {
-                padding-right: 300px;
-            }
-
-            .brand {
-                padding-left: 100px;
-            }
-        }
-
-        @media only screen and (max-width: 1024px) {
-            .firs {
-                padding-left: 160px;
-            }
-
-            .last {
-                padding-right: 160px;
-            }
-        }
-
-        /* img content */
-        .content {
-            position: absolute;
-            top: 140px;
-            left: 100px;
-            color: #fff;
-        }
-
-        .first {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-        }
-
-        .coffee {
-            font-size: 250px;
-            font-family: 'Clicker Script', cursive;
-        }
-
-        .others {
-            width: 500px;
-            font-size: 18px;
-            line-height: 30px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .content-btn {
-            border: 1px solid #F9C06A;
-            padding: 10px 20px;
-            width: 150px;
-            margin-top: 50px;
-            text-align: center;
-            border-radius: 25px;
-            color: #1E1E1E;
-            background: #F9C06A;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .content {
-                top: 120px;
-                left: 10px;
-            }
-
-            .coffee {
-                font-size: 100px;
-            }
-
-            .first {
-                font-size: 11px;
-            }
-
-            .others {
-                font-size: 10px;
-                width: 300px;
-            }
-
-            .content-btn {
-                margin-top: 20px;
-                padding: 8px 10px;
-            }
-            
-            .img {
-                height: 540px;
-            }
-        }
-
-        /* coffee beans */
-        .best {
-            color: #603809;
-            font-size: 50px;
-        }
-
-        .writeup {
-            font-family: 'Playfair Display', serif;
-            width: 550px;
-            line-height: 34px;
-            margin-top: 40px;
-        }
-
-        .coffee-beans {
-            margin-top: 100px;
-            margin-left: 100px;
-            width: 1200px;
-            display: flex;
-        }
-
-        .write {
-            color: #707070;
-            margin-top: 40px;
-            width: 500px;
-        }
-
-        .beans {
-            right: 0;
-            margin-left: 120px;
-            margin-top: -40px;
-        }
-
-        .content-bn {
-            border: 1px solid #F9C06A;
-            padding: 5px 10px;
-            width: 150px;
-            margin-top: 20px;
-            text-align: center;
-            border-radius: 30px;
-            color: #1E1E1E;
-            background: #F9C06A;
-            font-weight: 700;
-        }
-
-        @media only screen and (max-width: 1024px) {
-            .coffee-beans {
-                flex-direction: column;
-                align-items: center;
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .writeup, .beans {
-                width: 90%;
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .writeup {
-                margin-top: 50px;
-            }
-
-            .best {
-                font-size: 40px;
-            }
-
-            .write {
-                font-size: 16px;
-                width: 100%;
-            }
-
-            .beans {
-                margin-left: 0;
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .coffee-beans {
-                flex-direction: column;
-                align-items: center;
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .writeup, .beans {
-                width: 90%;
-                text-align: center;
-                margin: 20px 0;
-            }
-
-            .writeup {
-                margin-top: 50px;
-            }
-
-            .best {
-                font-size: 30px;
-            }
-
-            .write {
-                font-size: 14px;
-                width: 100%;
-            }
-
-            .beans {
-                margin-left: 0;
-            }
-        }
-        @media only screen and (max-width: 320px){
-            .blast{
-                width: 300px;
-                margin-top: 100px;
-            }
-        }
-        /* feedback */
-        .feedback{
-            margin-top: 210px;
-            font-family: 'Playfair Display', serif;
-        }
-        .head{
-            text-align: center;
-        }
-        .feed-header{
-            color: #603809;
-            font-size: 60px;
-        }
-        .paragraph{
-            color: #707070;
-            font-size: 20px;
-            margin-top: 20px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">   
 </head>
 <body>
     <!-- Navbar -->
     <nav>
         <div class="nav-container">
-            <span class="brand">Bean Scene</span>
+            <span class="brand">Ban Scene</span>
             <button id="dropdown-button" class="dropdown-button">☰</button>
             <ul id="nav-links" class="nav-links">
                 <li><a href="#" class="firs">Home</a></li>
@@ -360,7 +29,7 @@
 
     <!-- Background image -->
     <div>
-        <img src="coffee_image.png" alt="" class="img">
+        <img src="./images/coffee_image.png" alt="" class="img">
         <!-- Content -->
         <div class="content">
             <p class="first">We've got your morning covered with</p>
@@ -370,7 +39,7 @@
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         const dropdownButton = document.getElementById('dropdown-button');
         const navLinks = document.getElementById('nav-links');
 
@@ -382,7 +51,7 @@
             if (!dropdownButton.contains(e.target) && !navLinks.contains(e.target)) {
                 navLinks.classList.remove('show');
             }
-        });
+        }); -->
     </script>
     <!-- coffee beans -->
     <div class="coffee-beans">
@@ -394,10 +63,10 @@
             </p>
             <p class="content-bn">Learn More</p>
         </div>
-        <img src="stylized-cup-coffee-out-coffee-beans-flat-lay 1.png" alt="" class="beans">
+        <img src="./images/stylized-cup-coffee-out-coffee-beans-flat-lay 1.png" alt="" class="beans">
     </div>
     <div class="splash">
-        <img src="coffee_blast.png" alt="" style="margin-top: -150px; position: absolute;" class="blast">
+        <img src="./images/coffee_blast.png" alt="" style="margin-top: -150px; position: absolute;" class="blast">
     </div>
     <!-- feedback -->
      <div class="feedback">
